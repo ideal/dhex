@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <string.h>
+#include <sys/stat.h>
 #include "machine_type.h"
 #include "config.h"
 #include "buffers.h"
@@ -13,6 +14,8 @@
 // 
 tUInt32 openbuf(tBuffer* hBuf,tUInt8 bufnum,char* filename)
 {
+	struct stat st;
+
 	unsigned int filenamelen=0;
 	if (filename == NULL)
 		return	RETNOK;
@@ -26,6 +29,15 @@ tUInt32 openbuf(tBuffer* hBuf,tUInt8 bufnum,char* filename)
 	hBuf->fresh=1;
 	hBuf->file=fopen(filename,"rb");
 	memcpy(hBuf->filename,filename,filenamelen+1);
+
+	if (stat(filename, &st) < 0)
+	{
+		return RETNOK;
+	}
+	if (!S_ISREG(st.st_mode))
+	{
+		return RETNOK;
+	}
 
 	hBuf->filename[511]=0;
 	if (hBuf->file)
