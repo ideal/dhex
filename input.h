@@ -36,7 +36,7 @@
 
 void initkeytab(tOutput* output);
 tInt16 getkey(tKeyTab* pKeyTab,tBool inputfield);
-tInt16 decinput(tOutput* output,tInt16 y,tInt16 x,tUInt64* val,tInt16 len);
+tInt16 decinput(tOutput* output,tInt16 y,tInt16 x,tInt64* val,tInt16 len);
 tInt16 hexinput(tOutput* output,tInt16 y,tInt16 x,tUInt64* val,char* relative,tInt16 len);
 tInt16 hexinput2(tOutput* output,tInt16 y,tInt16 x,char* s,tInt16* usedlen,tInt16 len);
 tInt16 stringinput(tOutput* output,tInt16 y,tInt16 x,char* s,tInt16 len);

@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <unistd.h>
 #include "machine_type.h"
 #include "input.h"
 #include "output.h"
-#include "unistd.h"
 
 void initkeytab(tOutput* output)
 {
@@ -98,12 +98,12 @@ tInt16 getkey(tKeyTab* pKeyTab,tBool inputfield)		// =1 this is an inputfield. w
 }
 
 
-tInt16 decinput(tOutput* output,tInt16 y,tInt16 x,tUInt64* val,tInt16 len)
+tInt16 decinput(tOutput* output,tInt16 y,tInt16 x,tInt64* val,tInt16 len)
 {
 	tInt16 i;
 	tInt16 ch;
 	tInt16 done=0;
-	tUInt64	newval;
+	tInt64	newval;
 	char tmpbuf[21];
 
 	newval=*val;

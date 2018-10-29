@@ -407,7 +407,7 @@ void printmainmenu(tOutput* output,tBool diffmode)
 {
 	int i;
 	int x;
-	unsigned char* menutextsnodiff[]={
+	char* menutextsnodiff[]={
 "Goto  ",	// F1
 "Search",	// F2
 "Next  ",	// F3
@@ -419,7 +419,7 @@ void printmainmenu(tOutput* output,tBool diffmode)
 "Undo  ",	// F9
 "Quit  "};	// F10
 
-	unsigned char* menutextsdiff[]={
+	char* menutextsdiff[]={
 "      ",	// F1
 "      ",	// F2
 "Next  ",	// F3
